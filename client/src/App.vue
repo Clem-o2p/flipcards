@@ -61,7 +61,8 @@ export default {
             A: marked(A),
             B: marked(B)
           }
-        })
+        });
+        this.changeRandomIndex();
       })
     });
   }
@@ -103,6 +104,10 @@ pre {
   text-align: left;
   margin: 1rem auto!important;
   border-radius: 4px;
+}
+
+img {
+  max-width: 100%;
 }
 
 .card a {

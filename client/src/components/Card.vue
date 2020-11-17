@@ -9,7 +9,7 @@
         <p v-html="currentCard.B" />
       </div>
       <div class="pt-6 pb-6">
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ currentCard.category }}</span>
+        <span v-for="category in categories" :key="category" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ category }}</span>
       </div>
     </div>
   </div>
@@ -27,6 +27,11 @@ export default {
   props: {
     currentCard: {
       type: Object
+    }
+  },
+  computed: {
+    categories() {
+      return this.currentCard.category ? this.currentCard.category.split(",") : [];
     }
   },
   methods: {
