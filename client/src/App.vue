@@ -3,7 +3,9 @@
   <main class="flex flex-wrap flex-auto justify-center">
     <div class="flex-col w-5/6 md:w-1/2">
       <Card :currentCard="currentCard" v-if="cards.length" />
-      <p v-else>Loading...</p>
+      <div class="loader-wrapper flex-1 h-full" v-else>
+        <loader />
+      </div>
     </div>
   </main>
   <div class="w-full flex justify-center mt-1 p-4 bg-white">
@@ -27,12 +29,14 @@
 import { mapGetters, mapActions } from "vuex";
 import AppHeader from "./components/Header.vue";
 import Card from "./components/Card.vue";
+import Loader from "./components/icons/loader";
 
 export default {
   name: "App",
   components: {
     AppHeader,
     Card,
+    Loader,
   },
   computed: {
     ...mapGetters({

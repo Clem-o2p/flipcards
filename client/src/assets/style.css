@@ -46,3 +46,12 @@ img {
 .card a:hover {
   color: #246daa !important;
 }
+
+.loader-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.loader-wrapper svg {
+  margin: 0 auto;
+}
