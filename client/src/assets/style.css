@@ -1,0 +1,48 @@
+body {
+  background-color: #ebedf4;
+}
+
+#app {
+  height: 100vh;
+  justify-content: space-between;
+}
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #4691f6;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
+pre {
+  background-color: #ebedf4;
+  padding: 1rem;
+  text-align: left;
+  margin: 1rem auto !important;
+  border-radius: 4px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.card a {
+  color: #4299e1 !important;
+  transition: color 0.2s;
+}
+
+.card a:hover {
+  color: #246daa !important;
+}
