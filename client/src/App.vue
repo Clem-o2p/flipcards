@@ -17,9 +17,7 @@
 </template>
 
 <script>
-import marked from "marked";
-import { GoogleSpreadsheet } from "google-spreadsheet";
-import settings from "./settings/spec";
+import { mapGetters, mapActions} from "vuex";
 import AppHeader from './components/Header.vue'
 import Card from './components/Card.vue'
 
@@ -29,42 +27,19 @@ export default {
     AppHeader,
     Card
   },
-  data() {
-    return {
-      cards: [],
-      randomIndex: 0
-    }
-  },
   computed: {
-    currentCard() {
-      return this.cards[this.randomIndex]
-    }
+    ...mapGetters({
+      currentCard: "currentCard"
+    })
   },
   methods: {
-    changeRandomIndex() {
-      const max = this.cards.length;
-      this.randomIndex = Math.floor(Math.random() * max);
-    }
+    ...mapActions({
+      changeRandomIndex: "changeRandomIndex",
+      fetchCards: "fetchCards"
+    })
   },
   created() {
-    const doc = new GoogleSpreadsheet(settings.spreadsheetAPI.sheetId);
-
-    doc.useApiKey(settings.spreadsheetAPI.apiKey);
-
-
-    doc.loadInfo().then(() => {
-      const sheet = doc.sheetsByIndex[0];
-      sheet.getRows().then(rows => {
-        this.cards = rows.map(({ category, A, B }) => {
-          return {
-            category,
-            A: marked(A),
-            B: marked(B)
-          }
-        });
-        this.changeRandomIndex();
-      })
-    });
+    this.fetchCards();
   }
 }
 </script>
