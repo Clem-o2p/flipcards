@@ -1,0 +1,22 @@
+{
+  "name": "flipcards.dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "node scripts/gh-pages-deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clem-o2p/flipcards.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Clem-o2p/flipcards/issues"
+  },
+  "homepage": "https://github.com/Clem-o2p/flipcards#readme",
+  "dependencies": {
+    "execa": "^4.1.0"
+  }
+}
