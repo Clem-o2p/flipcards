@@ -1,3 +1,7 @@
 module.exports = {
-  publicPath: ""
+  publicPath: "",
+  pwa: {
+    name: "Flipcards.dev",
+    themeColor: "#2d3748"
+  }
 }
