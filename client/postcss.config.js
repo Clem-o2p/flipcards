@@ -9,7 +9,7 @@ module.exports = {
         /^img$/,
         /^code$/,
         /^pre$/,
-        /^shepherd$/,
+        /^shepherd/,
       ],
     },
     autoprefixer: {},
