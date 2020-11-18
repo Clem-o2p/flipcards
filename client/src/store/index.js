@@ -34,19 +34,27 @@ export default createStore({
   },
   actions: {
     fetchCards(context) {
-      api.fetchCards().then((rows) => {
-        const cards = mapRowsTocards(rows);
-        context.commit("SET_CARDS", cards);
-        context.commit("SET_RANDOM_INDEX");
+      return new Promise((resolve, reject) => {
+        api
+          .fetchCards()
+          .then((rows) => {
+            const cards = mapRowsTocards(rows);
+            context.commit("SET_CARDS", cards);
+            context.commit("SET_RANDOM_INDEX");
 
-        cards.forEach((card) => {
-          const cardCategories = card.category.split(",");
-          for (const cardCategory of cardCategories) {
-            if (!context.state.selectedCategories.includes(cardCategory)) {
-              context.commit("SET_SELECTED_CATEGORY", cardCategory);
-            }
-          }
-        });
+            cards.forEach((card) => {
+              const cardCategories = card.category.split(",");
+              for (const cardCategory of cardCategories) {
+                if (!context.state.selectedCategories.includes(cardCategory)) {
+                  context.commit("SET_SELECTED_CATEGORY", cardCategory);
+                  resolve();
+                }
+              }
+            });
+          })
+          .catch((err) => {
+            reject(err);
+          });
       });
     },
     changeRandomIndex(context) {

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card p-6 bg-white rounded-lg shadow-xl flex-1 h-full"
+    class="card p-6 bg-white rounded-lg shadow-xl flex-1 h-full card-step"
     @click="toggleFace"
     ref="card"
   >
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import bus from "../services/tour/bus";
+
 export default {
   name: "Card",
   data() {
@@ -54,6 +56,10 @@ export default {
     links.forEach((link) => {
       link.setAttribute("target", "_blank");
       link.setAttribute("rel", "noreferrer noopener");
+    });
+
+    bus.on("flip-card", () => {
+      this.toggleFace();
     });
   },
 };

@@ -8,7 +8,7 @@
       </div>
     </div>
   </main>
-  <div class="w-full flex justify-center mt-1 p-4 bg-white">
+  <div class="w-full flex justify-center mt-1 p-4 bg-white button-step">
     <button
       class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full inline-flex items-center"
       @click="changeRandomIndex"
@@ -31,6 +31,9 @@ import AppHeader from "./components/Header.vue";
 import Card from "./components/Card.vue";
 import Loader from "./components/icons/loader";
 
+import tour from "./services/tour";
+import bus from "./services/tour/bus";
+
 export default {
   name: "App",
   components: {
@@ -51,8 +54,14 @@ export default {
       fetchCards: "fetchCards",
     }),
   },
-  created() {
-    this.fetchCards();
+  mounted() {
+    this.fetchCards().then(() => {
+      tour.start();
+    });
+
+    bus.on("select-another", () => {
+      this.changeRandomIndex();
+    });
   },
 };
 </script>

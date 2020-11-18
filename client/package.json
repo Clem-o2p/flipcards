@@ -12,7 +12,9 @@
     "core-js": "^3.6.5",
     "google-spreadsheet": "^3.0.13",
     "marked": "^1.2.4",
+    "mitt": "^2.1.0",
     "register-service-worker": "^1.7.1",
+    "shepherd.js": "^8.1.0",
     "vue": "^3.0.0",
     "vuex": "^4.0.0-rc.1"
   },
