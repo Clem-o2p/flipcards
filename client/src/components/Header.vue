@@ -2,7 +2,7 @@
   <nav class="bg-gray-800 mb-4">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <h1 class="text-white font-bold">Flipcards.dev</h1>
+        <Logo />
         <div class="-mr-2 flex">
           <!-- Mobile menu button -->
           <button
@@ -55,10 +55,14 @@
 </template>
 
 <script>
+import Logo from "./icons/logo";
 import bus from "../services/tour/bus";
 
 export default {
   name: "Header",
+  components: {
+    Logo,
+  },
   data() {
     return {
       isOpen: false,
