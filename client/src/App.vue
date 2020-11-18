@@ -1,5 +1,5 @@
 <template>
-  <app-header />
+  <app-header :selectedCategories="selectedCategories" />
   <main class="flex flex-wrap flex-auto justify-center">
     <div class="flex-col w-5/6 md:w-1/2">
       <Card :currentCard="currentCard" v-if="cards.length" />
@@ -42,6 +42,7 @@ export default {
     ...mapGetters({
       cards: "cards",
       currentCard: "currentCard",
+      selectedCategories: "selectedCategories",
     }),
   },
   methods: {
